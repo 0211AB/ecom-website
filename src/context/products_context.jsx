@@ -33,6 +33,12 @@ const initialState = {
   singleProduct: {},
 }
 
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+}
+
 export const ProductsProvider = ({ children }) => {
   // Create userReducer function
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -50,7 +56,7 @@ export const ProductsProvider = ({ children }) => {
   const fetchAllProducts = async (url) => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     try {
-      const response = await axios.get(url)
+      const response = await axios.get(url, { headers })
       const products = response.data
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
     } catch (error) {
@@ -62,7 +68,7 @@ export const ProductsProvider = ({ children }) => {
   const fetchSingleProduct = async (url) => {
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
     try {
-      const response = await axios.get(url)
+      const response = await axios.get(url, { headers })
       const single_product = response.data
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: single_product })
     } catch (error) {

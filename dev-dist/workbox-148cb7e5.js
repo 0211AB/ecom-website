@@ -1867,7 +1867,7 @@ define(['exports'], (function (exports) { 'use strict';
         try {
           let fetchResponse;
           // See https://github.com/GoogleChrome/workbox/issues/1796
-          fetchResponse = await fetch(request, request.mode === 'navigate' ? undefined : this._strategy.fetchOptions);
+          fetchResponse = await (request, request.mode === 'navigate' ? undefined : this._strategy.fetchOptions);
           if ("development" !== 'production') {
             logger.debug(`Network request for ` + `'${getFriendlyURL(request.url)}' returned a response with ` + `status '${fetchResponse.status}'.`);
           }

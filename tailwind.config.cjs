@@ -10,8 +10,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#48c4a0",
+        primary: "#003459",
       },
+      scale: {
+        '250': '2.5',
+      }
     },
   },
   plugins: [require("@tailwindcss/forms")],
