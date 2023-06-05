@@ -16,17 +16,13 @@ exports.handler = async () => {
     const products = response.records.map((product) => {
       const { id, fields } = product
       const {
-        weight,
         price,
         most_popular,
         bestseller,
         material,
         stock,
-        Images,
-        new_arrival,
         designer,
         company,
-        hot_collection,
         colors,
         category,
         description,
@@ -37,26 +33,20 @@ exports.handler = async () => {
         featured,
         sale,
         trending,
-        shipping,
-        origin,
         images,
         exclusive,
         new_in_market,
       } = fields
       
-      const { url } = Images[0]
+      const { url } = images[0]
       return {
-        id,
-        weight,
         price,
         most_popular,
         bestseller,
         material,
         stock,
-        new_arrival,
         designer,
         company,
-        hot_collection,
         colors,
         category,
         description,
@@ -67,12 +57,10 @@ exports.handler = async () => {
         featured,
         sale,
         trending,
-        shipping,
-        origin,
-        image: url,
         images,
         exclusive,
         new_in_market,
+        image:url
       }
     })
     return {
