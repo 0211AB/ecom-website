@@ -37,9 +37,10 @@ exports.handler = async () => {
         exclusive,
         new_in_market,
       } = fields
-      
+
       const { url } = images[0]
       return {
+        id,
         price,
         most_popular,
         bestseller,
@@ -60,17 +61,23 @@ exports.handler = async () => {
         images,
         exclusive,
         new_in_market,
-        image:url
+        image: url
       }
     })
     return {
       statusCode: 200,
+      headers: {
+        "access-control-allow-origin": "*",
+      },
       body: JSON.stringify(products),
     }
   } catch (error) {
     console.log(error)
     return {
       statusCode: 500,
+      headers: {
+        "access-control-allow-origin": "*",
+      },
       body: "There was an error",
     }
   }

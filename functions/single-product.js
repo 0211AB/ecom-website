@@ -16,23 +16,35 @@ exports.handler = async (event, context, cb) => {
       if (product.error) {
         return {
           statusCode: 404,
+          headers: {
+            "access-control-allow-origin": "*",
+          },
           body: `No product with id: ${id}`,
         }
       }
       product = { id: product.id, ...product.fields }
       return {
         statusCode: 200,
+        headers: {
+          "access-control-allow-origin": "*",
+        },
         body: JSON.stringify(product),
       }
     } catch (error) {
       return {
         statusCode: 500,
+        headers: {
+          "access-control-allow-origin": "*",
+        },
         body: `Server Error`,
       }
     }
   }
   return {
     statusCode: 400,
+    headers: {
+      "access-control-allow-origin": "*",
+    },
     body: "Please provide product id",
   }
 }

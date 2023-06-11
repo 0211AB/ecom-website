@@ -12,7 +12,7 @@ const ProductGrid = () => {
       <CollectionProducts products={bestSeller_products} title="Best seller" />
 
       {/* New Arrival */}
-      <CollectionProducts products={newArrival_products} title="New Arrival" />
+      <CollectionProducts products={newArrival_products} title="Exclusive" />
 
       {/* Featured Products */}
       <CollectionProducts products={featured_products} title="Featured" />

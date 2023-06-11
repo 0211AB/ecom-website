@@ -40,7 +40,7 @@ const Order_summary = () => {
         <h5 className="bg-blu-100/60 flex items-center  justify-between bg-gray-100 bg-gray-200/70 py-8 px-4 text-sm font-medium ">
           Subtotal{" "}
           <span className="text-xl font-medium text-black">
-            {formatPrice(total_amount + shipping_fee)}
+            {formatPrice(total_amount + shipping_fee - 100)}
           </span>{" "}
         </h5>
         {user ? (

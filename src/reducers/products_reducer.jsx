@@ -26,11 +26,13 @@ const products_reducer = (state, action) => {
       (product) => product.featured === true
     )
     const allNewArrivalProducts = action.payload.filter(
-      (product) => product.new_arrival === true
+      (product) => product.exclusive === true
     )
     const allBestSeller_products = action.payload.filter(
       (product) => product.bestseller === true
     )
+
+    
     return {
       ...state,
       products_loading: false,

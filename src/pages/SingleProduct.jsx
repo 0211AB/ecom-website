@@ -31,7 +31,7 @@ const SingleProduct = () => {
   if (loading) return <Loading />
   if (error) return <Error />
 
-  const { name, description, images, price, reviews, stars, stock } = product
+  const { name, description, images, price, reviews, stars, stock, company, designer } = product
   return (
     <>
       <Breadcrumb title={name} product />
@@ -58,6 +58,8 @@ const SingleProduct = () => {
               <h4 className="text-3xl font-medium"> {name} </h4>
               {/* stars */}
               <Stars stars={stars} reviews={reviews} />
+              {company !== "" && <h4 className="text-xl font-medium"> {company} </h4>}
+              {designer !== "" && <h4 className="text-xl font-medium"> {designer} </h4>}
             </div>
 
             {/* Product description */}

@@ -12,7 +12,7 @@ const CategoryProducts = ({ products, category_name }) => {
               {category_name}
             </h3>
             <p className="text-sm font-light tracking-wider text-gray-600  ">
-              Small be and the rain would phase distance, succeed align.
+              Unleash Your Style: Discover the Ultimate {category_name} Paradise!
             </p>
             <View_button title="shop now" />
           </div>
