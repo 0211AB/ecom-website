@@ -6,7 +6,7 @@ import axios from "axios"
 import { Elements } from "@stripe/react-stripe-js"
 import CheckoutForm from "./CheckoutForm"
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
+const stripePromise = loadStripe("pk_test_51NWCWSSDyc9HQEvYyuTj1AnqJqQsN6IRoEnAWxdwWvQv6fvG7rsknt0jhp8u3Echkc3njm8GRoIjs5FQJ6jaXGKU00CtJVzJs1")
 
 const Stripe_Checkout = () => {
   const { cart, total_amount, shipping_fee } = useCartContext()

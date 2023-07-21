@@ -1,8 +1,6 @@
-import dotenv from "dotenv"
-dotenv.config()
 // Connect to the Stripe payment system
 import Stripe from "stripe"
-const stripe = new Stripe(process.env.VITE_STRIPE_SECRET_KEY)
+const stripe = new Stripe("sk_test_51NWCWSSDyc9HQEvY9b80XQ7v65UXarHw79gPLPluS1Z5OSiRQG2TiQ4IlgbsK6zGr6VwvohCRU2HbcZrzEYghoJI00yobGfviY")
 
 exports.handler = async (event, context) => {
   const { cart, shipping_fee, total_amount } = JSON.parse(event.body)
@@ -14,10 +12,13 @@ exports.handler = async (event, context) => {
   }
   try {
     // Create a PaymentIntent with the order amount and currency
+    console.log(stripe)
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(),
       currency: "INR",
     })
+
+    console.log(paymentIntent)
     return {
       statusCode: 200,
       body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
